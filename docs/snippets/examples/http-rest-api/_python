@@ -1,0 +1,10 @@
+import requests
+
+url = "https://api.scrapingpass.com"
+
+options = {
+    "api_key": "YOUR-API-KEY",
+    "url": "https://example.com/"
+}
+
+response = requests.get(url, params=options)
