@@ -2,6 +2,12 @@
 sidebar_position: 1
 slug: /
 ---
+
+# API Overview
+
+Scrapingpass allows you to scrape any website and extract data easily. It provides you with powerful web scraping and robotic process automation (RPA) tools to make your work easy for you. Either normal websites or modern client side rendered applications, scrapingpass allows you to scrape all of them. It takes care of rotating proxies, network issues with smart retries and scraping data itself using css selectors, etc.
+
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import CodeBlock from '@theme/CodeBlock';
@@ -9,11 +15,6 @@ import HTTPRestAPICURLExample from '!!raw-loader!./snippets/examples/http-rest-a
 import HTTPRestAPIPythonExample from '!!raw-loader!./snippets/examples/http-rest-api/_python';
 import HTTPProxyModeCURLExample from '!!raw-loader!./snippets/examples/http-proxy-mode/_curl';
 import HTTPProxyModePythonExample from '!!raw-loader!./snippets/examples/http-proxy-mode/_python';
-
-
-# API Overview
-
-Scrapingpass allows you to scrape any website and extract data easily. It provides you with powerful web scraping and robotic process automation (RPA) tools to make your work easy for you. Either normal websites or modern client side rendered applications, scrapingpass allows you to scrape all of them. It takes care of rotating proxies, network issues with smart retries and scraping data itself using css selectors, etc.
 
 ## Key Features
 
@@ -31,7 +32,7 @@ Scrapingpass allows you to scrape any website and extract data easily. It provid
 
 Scrapingpass API can be easily integrated into your new or existing project. As of now, Scrapingpass provides two interfaces to integrate and consume the API. Depending on your project setup, you may use either of these.
 
-- ### HTTP REST API
+- ## HTTP REST API
 
 Scrapingpass provides really simple HTTP REST API without multiple confusing endpoints. A single endpoint for all your scraping needs. Each behaviour of parsing and response can be modified by passing options as query parameters.
 
@@ -44,7 +45,11 @@ Scrapingpass provides really simple HTTP REST API without multiple confusing end
     </TabItem>
 </Tabs>
 
-- ### HTTP Proxy Mode
+:::tip
+Get started and dive directly into the [HTTP REST API](/getting-started/scrapingpass-api#http-rest-api).
+:::
+
+- ## HTTP Proxy Mode
 
 HTTP Proxy Mode is the most intuitive way to consume the API without making too much changes to your existing project. It can be incorporated into your ecosystem by simply injecting our proxy into your request methods. That's it. Scrapingpass will automatically do the rest for you.
 
@@ -58,6 +63,10 @@ Options and other stuffs like your API key is needed to be configured in this pr
         <CodeBlock className="language-python">{HTTPProxyModePythonExample}</CodeBlock>
     </TabItem>
 </Tabs>
+
+:::tip
+Get started and dive directly into the [HTTP Proxy Mode](/getting-started/proxy-mode#http-proxy-mode).
+:::
 
 ## Getting Help
 

@@ -1,3 +1,53 @@
 ---
 sidebar_position: 1
 ---
+
+# API Reference
+
+A brief general reference of several components of Scrapingpass API. Includes common concepts for both [HTTP REST API](/getting-started/scrapingpass-api#http-rest-api) and [HTTP Proxy Mode](/getting-started/proxy-mode#http-proxy-mode). Special cases for each will be mentioned accordingly.
+
+## API Interfaces
+
+References of individual interfaces are documented in their respective sections. Navigate through following links to quickly get started with either of these.
+
+- [HTTP REST API](/getting-started/scrapingpass-api#http-rest-api)
+- [HTTP Proxy Mode](/getting-started/proxy-mode#http-proxy-mode)
+
+## Options Reference
+
+Here are the listed options which are supported by the API to be used to customize the scrapingpass process, rendering, behaviour, etc. Note that few of these have different default values for HTTP Proxy Mode though they can be overridden as well.
+
+Options which are missing default values are mandatory and required to be specified. Similarly options which have listed credits adds up as extra credits. Options with missing credits are free to specify and don't incur any extra charges.
+
+|     Identifier    |   Type  |                                          Description                                         |  HTTP Rest API Default | HTTP Proxy Mode Default | Credits |
+|:-----------------:|:-------:|:--------------------------------------------------------------------------------------------:|:----------------------:|:-----------------------:|:-------:|
+|     `api_key`     |  String |                       Scrapingpass API Key required for authorization.                       |            -           |            -            |    -    |
+|       `url`       |  String |                           Actual URL of remote resource to scrape.                           |            -           |   Same as request URL   |    -    |
+|      `method`     |  String |                      HTTP method to use while making request to remote.                      | Same as request method |  Same as request method |    -    |
+|     `cookies`     |  String | The cookies to include with remote request in format `cookie1Name=value;cookie2Name=value;`. |          null          |           null          |    -    |
+| `forward_headers` | Boolean |                         Whether to forward request headers to remote.                        |          false         |           true          |    -    |
+|                   |         |                                                                                              |                        |                         |         |
+|                   |         |                                                                                              |                        |                         |         |
+|                   |         |                                                                                              |                        |                         |         |
+|                   |         |                                                                                              |                        |                         |         |
+|                   |         |                                                                                              |                        |                         |         |
+|                   |         |                                                                                              |                        |                         |         |
+|                   |         |                                                                                              |                        |                         |         |
+|                   |         |                                                                                              |                        |                         |         |
+|                   |         |                                                                                              |                        |                         |         |
+|                   |         |                                                                                              |                        |                         |         |
+|                   |         |                                                                                              |                        |                         |         |
+|                   |         |                                                                                              |                        |                         |         |
+|                   |         |                                                                                              |                        |                         |         |
+|                   |         |                                                                                              |                        |                         |         |
+
+### `api_key`
+See #authorization of each info
+
+### `cookies`
+:::tip
+You can also directly specify your cookie string in HTTP header as in `Cookie` key with [forward_headers](#forward-headers) set to true.
+:::
+
+### `forward_headers`
+Must be prefixed with ... not in proxy mode...
