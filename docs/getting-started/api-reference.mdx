@@ -34,22 +34,22 @@ Options which are missing default values are mandatory and required to be specif
 |               [`json`](#json)               | Boolean |              Whether to return JSON response wrapping remote response entities.              |          false         |          false          |    -    |
 |         [`proxy_type`](#proxy_type)         |  String |                         The type of proxy to use for remote request.                         |          none          |           auto          |    -    |
 |          [`proxy_url`](#proxy_url)          |  String |              Proxy to use for remote request rather than default existing proxy.             |          none          |           none          |    -    |
-|      [`scrape_google`](#scrape_google)      | Boolean |                      Must be specified true when remote host is Google.                      |          false         |          false          |    -    |
+|      [`scrape_google`](#scrape_google)      | Boolean |                      Must be specified true when remote host is Google.                      |          false         |          false          |    10   |
 |             [`device`](#device)             |  String |                    Type of device to pretend while making remote request.                    |         desktop        |         desktop         |    -    |
 |   [`extraction_rules`](#extraction_rules)   |  String |            Stringified JSON object with key as title and value as a CSS selector.            |          none          |           none          |    -    |
 | [`forward_user_agent`](#forward_user_agent) | Boolean |                          Whether to forward user agent as received.                          |          false         |          false          |    -    |
 |            [`request`](#request)            | Boolean |                     Explicitly specify to use normal request for remote.                     |          true          |           true          |    -    |
-|               [`html`](#html)               | Boolean |                     Explicitly specify to return HTML of remote response.                    |          true          |           true          |    -    |
-|       [`js_rendering`](#js_rendering)       | Boolean |             Use JS Rendering rather than normal requests using headless browsers.            |          false         |          false          |    -    |
-|         [`screenshot`](#screenshot)         | Boolean |                      Use JS Rendering and render screenshot of the page.                     |          false         |          false          |    -    |
-|                [`pdf`](#pdf)                | Boolean |                         Use JS Rendering and render PDF of the page.                         |          false         |          false          |    -    |
+|               [`html`](#html)               | Boolean |                     Explicitly specify to return HTML of remote response.                    |          true          |           true          |    1    |
+|       [`js_rendering`](#js_rendering)       | Boolean |             Use JS Rendering rather than normal requests using headless browsers.            |          false         |          false          |    4    |
+|         [`screenshot`](#screenshot)         | Boolean |                      Use JS Rendering and render screenshot of the page.                     |          false         |          false          |    2    |
+|                [`pdf`](#pdf)                | Boolean |                         Use JS Rendering and render PDF of the page.                         |          false         |          false          |    3    |
 |     [`execute_script`](#execute_script)     |  String |           An arbitrary javascript to execute while in JS Rendering after page load.          |          none          |           none          |    -    |
 |          [`js_scroll`](#js_scroll)          | Boolean |              Whether to take screenshot of full scrollable page in JS Rendering.             |          false         |          false          |    -    |
 |     [`js_scroll_wait`](#js_scroll_wait)     |  Number |            Delay to enforce between each scrolls in JS Rendering in milliseconds.            |           100          |           100           |    -    |
 |            [`js_wait`](#js_wait)            |  Number |    Number of seconds to wait in JS Rendering after page load or before rendering response.   |            1           |            1            |    -    |
 |      [`window_height`](#window_height)      |  Number |                    Height of the browser viewport in case of JS Rendering.                   |          1080          |           1080          |    -    |
 |       [`window_width`](#window_width)       |  Number |                    Width of the browser viewport in case of JS Rendering.                    |          1920          |           1920          |    -    |
-|      [`google_search`](#google_search)      | Boolean |                         Explicitly specify to use Google Search mode.                        |          false         |          false          |    -    |
+|      [`google_search`](#google_search)      | Boolean |                         Explicitly specify to use Google Search mode.                        |          false         |          false          |    10   |
 |              [`query`](#query)              |  String |                       The search term or query for Google Search mode.                       |                        |                         |    -    |
 
 :::note
