@@ -5,3 +5,70 @@ sidebar_position: 3
 # HTTP Proxy Mode
 
 HTTP Proxy Mode is a minimal proxy server which wraps the [Scrapingpass HTTP API](/getting-started/scrapingpass-api#http-rest-api) for you so that you can incorporate our API into your project by just adding this proxy to your request methods rather than modifying your codebase heavily and rewrite them incorporating Scrapingpass API.
+
+This makes most of the flow transparent with the remote. In other words, its almost same as making normal requests but powered by Scrapingpass API which does all sorts of parsing, processing, extraction, etc under the hood.
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import CodeBlock from '@theme/CodeBlock';
+import HTTPProxyModeCURLExample from '!!raw-loader!../snippets/api-usage-examples/http-proxy-mode/_screenshot-example-curl';
+import HTTPProxyModePythonExample from '!!raw-loader!../snippets/api-usage-examples/http-proxy-mode/_screenshot-example-python';
+
+## Proxy URL
+
+Scrapingpass provides HTTP proxy supporting standard HTTP as well as HTTPs URLs. Both HTTP and HTTPs version of proxies are available.
+
+```
+https://proxy.scrapingpass.com:8080
+```
+
+## Authorization
+
+HTTP Proxy Mode makes use of basic HTTP Authorization using a combination of username and password which can be specified either by specifying username and password directly into the proxy URL itself or as [`Proxy-Authorization`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Proxy-Authorization) header. Specifying username and password directly into the proxy URL is easier and preferred way of authorizing with the proxy.
+
+#### Proxy Credentials
+
+|   Field  |   Credential   |
+|:--------:|:--------------:|
+| username | `YOUR-API-KEY` |
+| password | `scrapingpass&` |
+
+Eventually the proxy URL which is to be used becomes something like:
+
+```
+https://YOUR-API-KEY:scrapingpass&@proxy.scrapingpass.com:8080
+```
+
+:::info
+You need to disable SSL certificates verification when using the Proxy Mode.
+:::
+
+## Specifying API Options
+
+Specifying API options in Proxy Mode requires you to insert the options in form of `key=value` pairs separated by `&` in password field of the Proxy URL. It is recommended to URL encode the parameter values to prevent conflicts with other parameters.
+
+An example to specify few options within the proxy password field.
+
+```
+https://YOUR-API-KEY:scrapingpass&json=true@proxy.scrapingpass.com:8080
+```
+
+For reference of list of all possible options accepted by the API, check [options reference](/getting-started/api-reference#options-reference).
+
+:::note
+Options like [`url`](/getting-started/api-reference#url), [`method`](/getting-started/api-reference#method), [`api_key`](/getting-started/api-reference#api_key) are automatically inferred in Proxy Mode.
+:::
+
+
+## Example Proxy Mode Usage
+
+- ### Getting rendered screenshot of a page.
+
+<Tabs>
+    <TabItem value="curl" label="cURL" default>
+        <CodeBlock className="language-shell">{HTTPProxyModeCURLExample}</CodeBlock>
+    </TabItem>
+    <TabItem value="python" label="Python">
+        <CodeBlock className="language-python">{HTTPProxyModePythonExample}</CodeBlock>
+    </TabItem>
+</Tabs>
