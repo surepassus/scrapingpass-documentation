@@ -206,3 +206,5 @@ Scrapingpass API returns different status codes depending on different error cas
 Each request to the Scrapingpass API incurs some credits unless there has been some internal server error or some unexpected exception with the API itself.
 
 Extra credits adds up based on the options specified. Exact extra credits used are listed within [options reference](#options-reference) page for options who cost extra credits.
+
+If [transparent mode](#transparent_mode) is not enabled, then the API includes a `Balance-Used` header which contains the total credits used for that particular request.
