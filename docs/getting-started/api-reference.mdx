@@ -6,6 +6,10 @@ sidebar_position: 1
 
 A brief general reference of several components of Scrapingpass API. Includes common concepts for both [HTTP REST API](/getting-started/scrapingpass-api#http-rest-api) and [HTTP Proxy Mode](/getting-started/proxy-mode#http-proxy-mode). Special cases for each will be mentioned accordingly.
 
+import CodeBlock from '@theme/CodeBlock';
+import JSONResponseExample from '!!raw-loader!../snippets/api-response-examples/json';
+import ExtractionRulesResponseExample from '!!raw-loader!../snippets/api-response-examples/extraction_rules';
+
 ## API Interfaces
 
 References of individual interfaces are documented in their respective sections. Navigate through following links to quickly get started with either of these.
@@ -19,35 +23,156 @@ Here are the listed options which are supported by the API to be used to customi
 
 Options which are missing default values are mandatory and required to be specified. Similarly options which have listed credits adds up as extra credits. Options with missing credits are free to specify and don't incur any extra charges.
 
-|     Identifier    |   Type  |                                          Description                                         |  HTTP Rest API Default | HTTP Proxy Mode Default | Credits |
-|:-----------------:|:-------:|:--------------------------------------------------------------------------------------------:|:----------------------:|:-----------------------:|:-------:|
-|     `api_key`     |  String |                       Scrapingpass API Key required for authorization.                       |            -           |            -            |    -    |
-|       `url`       |  String |                           Actual URL of remote resource to scrape.                           |            -           |   Same as request URL   |    -    |
-|      `method`     |  String |                      HTTP method to use while making request to remote.                      | Same as request method |  Same as request method |    -    |
-|     `cookies`     |  String | The cookies to include with remote request in format `cookie1Name=value;cookie2Name=value;`. |          null          |           null          |    -    |
-| `forward_headers` | Boolean |                         Whether to forward request headers to remote.                        |          false         |           true          |    -    |
-|                   |         |                                                                                              |                        |                         |         |
-|                   |         |                                                                                              |                        |                         |         |
-|                   |         |                                                                                              |                        |                         |         |
-|                   |         |                                                                                              |                        |                         |         |
-|                   |         |                                                                                              |                        |                         |         |
-|                   |         |                                                                                              |                        |                         |         |
-|                   |         |                                                                                              |                        |                         |         |
-|                   |         |                                                                                              |                        |                         |         |
-|                   |         |                                                                                              |                        |                         |         |
-|                   |         |                                                                                              |                        |                         |         |
-|                   |         |                                                                                              |                        |                         |         |
-|                   |         |                                                                                              |                        |                         |         |
-|                   |         |                                                                                              |                        |                         |         |
-|                   |         |                                                                                              |                        |                         |         |
+|                  Identifier                 |   Type  |                                          Description                                         |  HTTP Rest API Default | HTTP Proxy Mode Default | Credits |
+|:-------------------------------------------:|:-------:|:--------------------------------------------------------------------------------------------:|:----------------------:|:-----------------------:|:-------:|
+|            [`api_key`](#api_key)            |  String |                       Scrapingpass API Key required for authorization.                       |            -           |            -            |    -    |
+|                [`url`](#url)                |  String |                           Actual URL of remote resource to scrape.                           |            -           |   Same as request URL   |    -    |
+|             [`method`](#method)             |  String |                      HTTP method to use while making request to remote.                      | Same as request method |  Same as request method |    -    |
+|            [`cookies`](#cookies)            |  String | The cookies to include with remote request in format `cookie1Name=value;cookie2Name=value;`. |          null          |           null          |    -    |
+|    [`forward_headers`](#forward_headers)    | Boolean |                         Whether to forward request headers to remote.                        |          false         |           true          |    -    |
+|   [`transparent_mode`](#transparent_mode)   | Boolean |        Whether to keep API response headers, status code, etc transparent with remote.       |          false         |           true          |    -    |
+|               [`json`](#json)               | Boolean |              Whether to return JSON response wrapping remote response entities.              |          false         |          false          |    -    |
+|         [`proxy_type`](#proxy_type)         |  String |                         The type of proxy to use for remote request.                         |          none          |           auto          |    -    |
+|          [`proxy_url`](#proxy_url)          |  String |              Proxy to use for remote request rather than default existing proxy.             |          none          |           none          |    -    |
+|      [`scrape_google`](#scrape_google)      | Boolean |                      Must be specified true when remote host is Google.                      |          false         |          false          |    -    |
+|             [`device`](#device)             |  String |                    Type of device to pretend while making remote request.                    |         desktop        |         desktop         |    -    |
+|   [`extraction_rules`](#extraction_rules)   |  String |            Stringified JSON object with key as title and value as a CSS selector.            |          none          |           none          |    -    |
+| [`forward_user_agent`](#forward_user_agent) | Boolean |                          Whether to forward user agent as received.                          |          false         |          false          |    -    |
+|            [`request`](#request)            | Boolean |                     Explicitly specify to use normal request for remote.                     |          true          |           true          |    -    |
+|               [`html`](#html)               | Boolean |                     Explicitly specify to return HTML of remote response.                    |          true          |           true          |    -    |
+|       [`js_rendering`](#js_rendering)       | Boolean |             Use JS Rendering rather than normal requests using headless browsers.            |          false         |          false          |    -    |
+|         [`screenshot`](#screenshot)         | Boolean |                      Use JS Rendering and render screenshot of the page.                     |          false         |          false          |    -    |
+|                [`pdf`](#pdf)                | Boolean |                         Use JS Rendering and render PDF of the page.                         |          false         |          false          |    -    |
+|     [`execute_script`](#execute_script)     |  String |           An arbitrary javascript to execute while in JS Rendering after page load.          |          none          |           none          |    -    |
+|          [`js_scroll`](#js_scroll)          | Boolean |              Whether to take screenshot of full scrollable page in JS Rendering.             |          false         |          false          |    -    |
+|     [`js_scroll_wait`](#js_scroll_wait)     |  Number |            Delay to enforce between each scrolls in JS Rendering in milliseconds.            |           100          |           100           |    -    |
+|            [`js_wait`](#js_wait)            |  Number |    Number of seconds to wait in JS Rendering after page load or before rendering response.   |            1           |            1            |    -    |
+|      [`window_height`](#window_height)      |  Number |                    Height of the browser viewport in case of JS Rendering.                   |          1080          |           1080          |    -    |
+|       [`window_width`](#window_width)       |  Number |                    Width of the browser viewport in case of JS Rendering.                    |          1920          |           1920          |    -    |
+|      [`google_search`](#google_search)      | Boolean |                         Explicitly specify to use Google Search mode.                        |          false         |          false          |    -    |
+|              [`query`](#query)              |  String |                       The search term or query for Google Search mode.                       |                        |                         |    -    |
+
+:::note
+It is recommended to URL encode all of the string type options before passing it to API.
+:::
 
 ### `api_key`
-See #authorization of each info
+The API Key for authorization with Scrapingpass API. For more details on its usage, consider checking specific authorization sections for each interfaces.
+- [HTTP REST API Authorization](/getting-started/scrapingpass-api#authorization)
+- [HTTP Proxy Mode Authorization](/getting-started/proxy-mode#authorization)
+
+:::tip
+Want to quickly try out our API? [Get your API Key now and start exploring](https://scrapingpass.com/pricing/)!
+:::
+
+### `url`
+The actual URL which you want to scrape or request. This option is required and must be URL encoded. You don't need to specify this option in Proxy Mode as the request URL is considered for this.
+
+### `method`
+The HTTP method to use while making request to remote. If this is POST/PUT request and you need to send any data, you can normally include it in your original request. Scrapingpass will forward all of data as received to the remote.
 
 ### `cookies`
+The HTTP cookies to include along with the request to remote. You must specify the cookies in format of `name=value` pairs separated by a semicolon. For example, `cookie1Name=value;cookie2Name=value;`.
+
+You can specify cookies to scrape or get screenshot of some page which requires you to be logged in. Scrapingpass will normally resume and pick up the session using the cookies specified.
+
 :::tip
 You can also directly specify your cookie string in HTTP header as in `Cookie` key with [forward_headers](#forward-headers) set to true.
 :::
 
 ### `forward_headers`
-Must be prefixed with ... not in proxy mode...
+Determines whether to forward the headers along with request to remote. In REST API mode, the headers which are needed to be forwarded must be prefixed with `Sp-`. For example, if you need to pass a Referer header, you can do so by sending header with key `Sp-Referer` and specifying `forward_headers=true`. Scrapingpass will strip Sp- and forward your Referer header normally.
+
+This option is enabled by default in the HTTP Proxy Mode.
+
+:::tip
+You don't need to prefix headers in [HTTP Proxy Mode](/getting-started/proxy-mode#http-proxy-mode). Scrapingpass will automatically forward all of the headers as received along with the request to remote.
+:::
+
+### `transparent_mode`
+Determines if the API response status code, headers must be transparent with remote response. If it's specified true, then scrapingpass will return response headers and status code in same way as if you were directly making request to remote.
+
+This option is enabled by default in the HTTP Proxy Mode.
+
+### `json`
+Determines if the API response should be wrapped within a JSON object. This wraps API response along with the actual remote response content, status code, headers, etc within a single JSON object.
+
+Here is an example API response with `json=true` specified. The `data` field holds the actual response from the remote.
+
+<CodeBlock className="language-json">{JSONResponseExample}</CodeBlock>
+
+### `proxy_type`
+The type of proxy to use for making remote requests. The possible proxy types and their respective extra credits are listed. You may use any one of these proxy types depending on your requirement.
+
+|   Proxy Type  | Extra Credits Used |
+|:-------------:|:------------------:|
+|     `none`    |          -         |
+|     `auto`    |          -         |
+| `data_center` |          1         |
+| `residential` |          3         |
+
+### `proxy_url`
+If you want to use your own proxy for remote requests and don't want to use the ones provided by Scrapingpass, you can specify your own proxy URL to this field. Note that it must be a vaild and reachable proxy URL.
+
+### `scrape_google`
+Determines whether the requested remote host is of Google. This option must be specified for all remote Google hostnames.
+
+### `device`
+The type of device to pretend to remote. This is controlled by using different user agents for remote requests. The available devices are listed.
+- `desktop`
+- `mobile`
+
+### `extraction_rules`
+If you want to extract data from page and don't want to parse HTMLs, you can directly specify a stringified JSON object of key value pairs where key determines the identifier and value determines the exact CSS selector of element to extract text of.
+
+For example, to extract the title and paragraph text from https://example.com/, the following extraction rule does the job.
+
+```json
+extraction_rules={"title":"body > div > h1","paragraph":"body > div > p:nth-child(2)"}
+```
+Example response in case of extraction rules specified:
+
+<CodeBlock className="language-json">{ExtractionRulesResponseExample}</CodeBlock>
+
+### `forward_user_agent`
+Determines whether to forward the User-Agent header as received with the remote request. Most of times this is helpful in scraping sites which tend to block few sets of user agents.
+
+### `request`
+Determines whether to use normal HTTP request for remote rather than using headless browsers. This option is enabled by default.
+
+### `html`
+Determines whether to return HTML body of remote response. This option is enabled by default. It can also be specified in conjunction with the [`rendering_rendering=true`](#js_rendering) to get rendered HTML of client side rendered web applications.
+
+### `js_rendering`
+Determines whether to use JS Rendering using headless browsers for remote requests rather than normal HTTP request. This is suitable for modern client side rendered web applications.
+
+### `screenshot`
+This options renders screenshot of the page using [JS Rendering](#js_rendering). If js_rendering option is missing, it is automatically passed for you.
+
+### `pdf`
+This option renders PDF of the page using [JS Rendering](#js_rendering). If js_rendering option is missing, it is automatically passed for you.
+
+### `execute_script`
+Sometimes its required to click on pop ups or some buttons while in JS Rendering to reveal the actual content. This options allows you to execute any arbitrary javascript after the page has been loaded.
+
+### `js_scroll`
+Determines whether to take screenshot of full scrollable page in JS Rendering. This option can used in conjunction with the [PDF](#pdf) and [Screenshot](#screenshot) options.
+
+### `js_scroll_wait`
+The delay to enforce between each scrolls in JS Rendering in milliseconds. This option can used in conjunction with the [PDF](#pdf) and [Screenshot](#screenshot) options.
+
+### `js_wait`
+Number of seconds to wait in JS Rendering after page load or before rendering response. This can be useful for web applications which take significant amount of time to render.
+
+### `window_height`
+Height of the browser viewport in case of JS Rendering.
+
+### `window_width`
+Width of the browser viewport in case of JS Rendering. 
+
+### `google_search`
+Determines whether to use the Google Search mode. This mode takes care of proxy rotation, re captchas itself so that you can focus purely on extracting the search results.
+
+### `query`
+The search term for [Google Search](#google_search) mode. This option is mandatory and required with google_search=true option.
+
