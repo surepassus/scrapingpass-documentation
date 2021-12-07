@@ -3,3 +3,55 @@ sidebar_position: 2
 ---
 
 # HTTP REST API
+
+Scrapingpass HTTP REST API is the core which lets you perform all sort of scraping tasks. It provides a single endpoint and options being provided as query parameter makes it really easy and fast to get started with.
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import CodeBlock from '@theme/CodeBlock';
+import HTTPRestAPICURLExample from '!!raw-loader!../snippets/api-usage-examples/http-rest-api/_screenshot-example-curl';
+import HTTPRestAPIPythonExample from '!!raw-loader!../snippets/api-usage-examples/http-rest-api/_screenshot-example-python';
+
+## API Base URL
+
+Scrapingpass provides SSL enabled HTTPs API. Following is the latest version of deployed API. As of now, there are no endpoints of Scrapingpass API other than the root itself.
+
+```
+https://api.scrapingpass.com
+```
+
+## Authorization
+
+After signing up onto Scrapingpass, you're provided up with an API Key to access the Scrapingpass API. If you don't already have an API Key, [get it now](https://scrapingpass.com/pricing/).
+
+Specifying your API Key is simple. You need to make use of the [`api_key`](/getting-started/api-reference#api_key) option to specify your API Key in URL query parameter as like:
+
+```
+https://api.scrapingpass.com?api_key=YOUR-API-KEY
+```
+
+## Specifying API Options
+
+Specifying different options is as simple and same as adding any other URL query parameters. It is recommended to URL encode the parameter values to prevent conflicts with other parameters.
+
+An example to specify few options along with authorization.
+
+```
+https://api.scrapingpass.com?api_key=YOUR-API-KEY&url=https://example.com/&json=true
+```
+
+For reference of list of all possible options accepted by the API, check [options reference](/getting-started/api-reference#options-reference).
+
+
+## Example HTTP REST API Usage
+
+- ### Getting rendered screenshot of a page.
+
+<Tabs>
+    <TabItem value="curl" label="cURL" default>
+        <CodeBlock className="language-shell">{HTTPRestAPICURLExample}</CodeBlock>
+    </TabItem>
+    <TabItem value="python" label="Python">
+        <CodeBlock className="language-python">{HTTPRestAPIPythonExample}</CodeBlock>
+    </TabItem>
+</Tabs>
