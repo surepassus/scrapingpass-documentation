@@ -177,3 +177,32 @@ Determines whether to use the Google Search mode. This mode takes care of proxy 
 
 ### `query`
 The search term for [Google Search](#google_search) mode. This option is mandatory and required with google_search=true option.
+
+## API Max Concurrency Limit
+
+Scrapingpass API enforces a max concurrency limit within the API to prevent abuse of the API. If user exceeds the max concurrency limit then API terminates with status code `429`.
+
+You can always increase up your max concurrency limit by changing the API plan or [contact us directly](/#getting-help).
+
+## API Error Status Codes
+
+Scrapingpass API returns different status codes depending on different error cases. They're listed below.
+
+| Status Code |         Reason Phrase         |             Error Code             |                                  Description                                 |
+|:-----------:|:-----------------------------:|:----------------------------------:|:----------------------------------------------------------------------------:|
+|     400     |          Bad Request          |            `bad_request`           |               Something went wrong while parsing user request.               |
+|     400     |          Bad Request          |     `options_validation_failed`    |                Something wrong with options or API parameters.               |
+|     400     |          Bad Request          |      `user_proxy_unreachable`      |                 Proxy specified by the user is not reachable.                |
+|     400     |          Bad Request          |         `bad_proxy_request`        | Something wrong with proxy options or parameters in case of HTTP Proxy Mode. |
+|     401     |          Unauthorized         |          `user_not_found`          |                          Invalid or missing API Key.                         |
+|     403     |           Forbidden           |      `user_not_enough_balance`     |                         Not enough balance in wallet.                        |
+|     403     |           Forbidden           | `user_authorization_token_revoked` |                     A revoked API Key has been specified.                    |
+|     429     |       Too Many Requests       |  `user_concurrency_limit_exceeded` |                User has exceeded their max concurrency limit.                |
+|     407     | Proxy Authentication Required |    `missing_proxy_authorization`   |            Missing proxy authorization in case of HTTP Proxy Mode.           |
+|     500     |     Internal Server Error     |       `unexpected_exception`       |              Something went wrong with Scrapingpass API servers.             |
+
+## API Credits Usage
+
+Each request to the Scrapingpass API incurs some credits unless there has been some internal server error or some unexpected exception with the API itself.
+
+Extra credits adds up based on the options specified. Exact extra credits used are listed within [options reference](#options-reference) page for options who cost extra credits.
