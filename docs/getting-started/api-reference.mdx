@@ -81,7 +81,9 @@ You can also directly specify your cookie string in HTTP header as in `Cookie` k
 :::
 
 ### `forward_headers`
-Determines whether to forward the headers along with request to remote. In REST API mode, the headers which are needed to be forwarded must be prefixed with `Sp-`. For example, if you need to pass a Referer header, you can do so by sending header with key `Sp-Referer` and specifying `forward_headers=true`. Scrapingpass will strip Sp- and forward your Referer header normally.
+Determines whether to forward the headers along with request to remote. In REST API mode, if this option is enabled then request headers are forwarded to the remote.
+
+The headers which are prefixed with `Sp-` are always forwarded to the remote independent of the forward_headers option. For example, if you need to pass a Referer header, you can also do so by sending header with key `Sp-Referer`. Scrapingpass will strip Sp- and forward your Referer header normally.
 
 This option is enabled by default in the HTTP Proxy Mode.
 
@@ -175,4 +177,3 @@ Determines whether to use the Google Search mode. This mode takes care of proxy 
 
 ### `query`
 The search term for [Google Search](#google_search) mode. This option is mandatory and required with google_search=true option.
-
