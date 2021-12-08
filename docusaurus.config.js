@@ -8,12 +8,12 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'Scrapingpass API',
   tagline: 'Web Scraping API and Robotic process automation (RPA)',
-  url: 'http://localhost:3000',
-  baseUrl: '/',
+  url: 'https://scrapingpass.com',
+  baseUrl: '/documentation/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/scrapingpass-icon.png',
-  organizationName: 'surepass', // Usually your GitHub org/user name.
+  organizationName: 'surepassus', // Usually your GitHub org/user name.
   projectName: 'scrapingpass-documentation', // Usually your repo name.
 
   presets: [
