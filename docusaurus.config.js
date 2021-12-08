@@ -62,7 +62,7 @@ const config = {
       footer: {
         style: 'dark',
         links: [],
-        copyright: `Copyright © ${new Date().getFullYear()} <a href="https://surepass.io/" target="_blank">Surepass Technologies</a>.`,
+        copyright: `Copyright © ${new Date().getFullYear()} <a href="https://surepass.us/" target="_blank">Surepass Inc.</a>.`,
       },
       prism: {
         theme: lightCodeTheme,
