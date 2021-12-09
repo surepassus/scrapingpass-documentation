@@ -1,0 +1,8 @@
+import requests
+
+proxy_url = "http://YOUR-API-KEY:scrapingpass&@proxy.scrapingpass.com:8080"
+proxies = {"http": proxy_url, "https": proxy_url}
+
+payload={'your_form_data_field': 'YourFormFieldValue'}
+
+response = requests.post("https://httpbin.org/anything", data=payload, proxies=proxies, verify=False)

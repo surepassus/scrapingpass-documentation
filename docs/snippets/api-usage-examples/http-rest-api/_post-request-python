@@ -1,0 +1,12 @@
+import requests
+
+url = "https://api.scrapingpass.com"
+
+options = {
+    "api_key": "YOUR-API-KEY",
+    "url": "https://httpbin.org/anything"
+}
+
+payload={'your_form_data_field': 'YourFormFieldValue'}
+
+response = requests.post(url, params=options, data=payload)

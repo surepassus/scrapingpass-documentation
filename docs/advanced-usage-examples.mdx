@@ -16,6 +16,8 @@ import HTTPRestAPIPDFJSRenderingCURL from '!!raw-loader!./snippets/api-usage-exa
 import HTTPRestAPIPDFJSRenderingPython from '!!raw-loader!./snippets/api-usage-examples/http-rest-api/_pdf-js-rendering-python';
 import HTTPRestAPIForwardHeadersCURL from '!!raw-loader!./snippets/api-usage-examples/http-rest-api/_forward-headers-curl';
 import HTTPRestAPIForwardHeadersPython from '!!raw-loader!./snippets/api-usage-examples/http-rest-api/_forward-headers-python';
+import HTTPRestAPIPOSTRequestCURL from '!!raw-loader!./snippets/api-usage-examples/http-rest-api/_post-request-curl';
+import HTTPRestAPIPOSTRequestPython from '!!raw-loader!./snippets/api-usage-examples/http-rest-api/_post-request-python';
 
 import HTTPProxyModeHTMLJSRenderingCURL from '!!raw-loader!./snippets/api-usage-examples/http-proxy-mode/_html-js-rendering-curl';
 import HTTPProxyModeHTMLJSRenderingPython from '!!raw-loader!./snippets/api-usage-examples/http-proxy-mode/_html-js-rendering-python';
@@ -23,6 +25,8 @@ import HTTPProxyModePDFJSRenderingCURL from '!!raw-loader!./snippets/api-usage-e
 import HTTPProxyModePDFJSRenderingPython from '!!raw-loader!./snippets/api-usage-examples/http-proxy-mode/_pdf-js-rendering-python';
 import HTTPProxyModeForwardHeadersCURL from '!!raw-loader!./snippets/api-usage-examples/http-proxy-mode/_forward-headers-curl';
 import HTTPProxyModeForwardHeadersPython from '!!raw-loader!./snippets/api-usage-examples/http-proxy-mode/_forward-headers-python';
+import HTTPProxyModePOSTRequestCURL from '!!raw-loader!./snippets/api-usage-examples/http-proxy-mode/_post-request-curl';
+import HTTPProxyModePOSTRequestPython from '!!raw-loader!./snippets/api-usage-examples/http-proxy-mode/_post-request-python';
 
 ## JS Rendering
 
@@ -114,4 +118,24 @@ When its required to capture the state after some kind of form submit which usua
 
 You simply need to make request to API with POST/PUT method along with your request body or form data. Scrapingpass will transparently forward the same request body to remote while making POST/PUT request.
 
-...
+- #### HTTP REST API
+
+<Tabs>
+    <TabItem value="curl" label="cURL" default>
+        <CodeBlock className="language-shell">{HTTPRestAPIPOSTRequestCURL}</CodeBlock>
+    </TabItem>
+    <TabItem value="python" label="Python">
+        <CodeBlock className="language-python">{HTTPRestAPIPOSTRequestPython}</CodeBlock>
+    </TabItem>
+</Tabs>
+
+- #### HTTP Proxy Mode
+
+<Tabs>
+    <TabItem value="curl" label="cURL" default>
+        <CodeBlock className="language-shell">{HTTPProxyModePOSTRequestCURL}</CodeBlock>
+    </TabItem>
+    <TabItem value="python" label="Python">
+        <CodeBlock className="language-python">{HTTPProxyModePOSTRequestPython}</CodeBlock>
+    </TabItem>
+</Tabs>
