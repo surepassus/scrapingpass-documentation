@@ -6,7 +6,7 @@ url = "https://api.scrapingpass.com"
 
 options = {
     "api_key": "YOUR-API-KEY",
-    "url": "https://example.com/",
+    "url": "https://httpbin.org/headers",
     "forward_headers": True,
 }
 
@@ -18,7 +18,7 @@ headers = {
 
 # options = {
 #     "api_key": "YOUR-API-KEY",
-#     "url": "https://example.com/",
+#     "url": "https://httpbin.org/headers",
 # }
 
 # headers = {

@@ -7,4 +7,4 @@ headers = {
   'Your-Header-Key': 'YourHeaderValue'
 }
 
-response = requests.get("https://example.com/", headers=headers, proxies=proxies, verify=False)
+response = requests.get("https://httpbin.org/headers", headers=headers, proxies=proxies, verify=False)
