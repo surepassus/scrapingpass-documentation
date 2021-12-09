@@ -1,4 +1,5 @@
-curl --request POST --insecure \
+curl --insecure \
+    --request POST \
     --proxy 'http://YOUR-API-KEY:scrapingpass&@proxy.scrapingpass.com:8080' \
     --form 'your_form_data_field="YourFormFieldValue"' \
     'https://httpbin.org/anything'

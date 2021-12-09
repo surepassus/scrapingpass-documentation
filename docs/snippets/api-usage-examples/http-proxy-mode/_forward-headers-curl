@@ -1,4 +1,4 @@
 curl --insecure \
     --proxy 'http://YOUR-API-KEY:scrapingpass&@proxy.scrapingpass.com:8080' \
-    'https://httpbin.org/headers' \
-    --header 'Your-Header-Key: YourHeaderValue'
+    --header 'Your-Header-Key: YourHeaderValue' \
+    'https://httpbin.org/headers'

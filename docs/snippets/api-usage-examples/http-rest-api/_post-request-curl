@@ -1,2 +1,3 @@
-curl --request POST 'https://api.scrapingpass.com?api_key=YOUR-API-KEY&url=https://httpbin.org/anything' \
-    --form 'your_form_data_field="YourFormFieldValue"'
+curl --request POST \
+    --form 'your_form_data_field="YourFormFieldValue"' \
+    'https://api.scrapingpass.com?api_key=YOUR-API-KEY&url=https://httpbin.org/anything'
