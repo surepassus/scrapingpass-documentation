@@ -1,0 +1,1 @@
+curl 'https://api.scrapingpass.com?api_key=YOUR-API-KEY&url=https://example.com/&pdf=true'

@@ -6,17 +6,71 @@ sidebar_position: 3
 
 This section holds examples on achieving different implementations and methodologies using Scrapingpass API.
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import CodeBlock from '@theme/CodeBlock';
+
+import HTTPRestAPIHTMLJSRenderingCURL from '!!raw-loader!./snippets/api-usage-examples/http-rest-api/_html-js-rendering-curl';
+import HTTPRestAPIHTMLJSRenderingPython from '!!raw-loader!./snippets/api-usage-examples/http-rest-api/_html-js-rendering-python';
+import HTTPRestAPIPDFJSRenderingCURL from '!!raw-loader!./snippets/api-usage-examples/http-rest-api/_pdf-js-rendering-curl';
+import HTTPRestAPIPDFJSRenderingPython from '!!raw-loader!./snippets/api-usage-examples/http-rest-api/_pdf-js-rendering-python';
+
+import HTTPProxyModeHTMLJSRenderingCURL from '!!raw-loader!./snippets/api-usage-examples/http-proxy-mode/_html-js-rendering-curl';
+import HTTPProxyModeHTMLJSRenderingPython from '!!raw-loader!./snippets/api-usage-examples/http-proxy-mode/_html-js-rendering-python';
+import HTTPProxyModePDFJSRenderingCURL from '!!raw-loader!./snippets/api-usage-examples/http-proxy-mode/_pdf-js-rendering-curl';
+import HTTPProxyModePDFJSRenderingPython from '!!raw-loader!./snippets/api-usage-examples/http-proxy-mode/_pdf-js-rendering-python';
+
 ## JS Rendering
 
 Sometimes its required to make use of headless browsers aka JS Rendering for client side rendered web applications. Scrapingpass provides lets you get either HTML or screenshot, PDF, etc through JS Rendering.
 
 ### HTML through JS Rendering
 
-...
+- #### HTTP REST API
+
+<Tabs>
+    <TabItem value="curl" label="cURL" default>
+        <CodeBlock className="language-shell">{HTTPRestAPIHTMLJSRenderingCURL}</CodeBlock>
+    </TabItem>
+    <TabItem value="python" label="Python">
+        <CodeBlock className="language-python">{HTTPRestAPIHTMLJSRenderingPython}</CodeBlock>
+    </TabItem>
+</Tabs>
+
+- #### HTTP Proxy Mode
+
+<Tabs>
+    <TabItem value="curl" label="cURL" default>
+        <CodeBlock className="language-shell">{HTTPProxyModeHTMLJSRenderingCURL}</CodeBlock>
+    </TabItem>
+    <TabItem value="python" label="Python">
+        <CodeBlock className="language-python">{HTTPProxyModeHTMLJSRenderingPython}</CodeBlock>
+    </TabItem>
+</Tabs>
 
 ### PDF through JS Rendering
 
-...
+- #### HTTP REST API
+
+<Tabs>
+    <TabItem value="curl" label="cURL" default>
+        <CodeBlock className="language-shell">{HTTPRestAPIPDFJSRenderingCURL}</CodeBlock>
+    </TabItem>
+    <TabItem value="python" label="Python">
+        <CodeBlock className="language-python">{HTTPRestAPIPDFJSRenderingPython}</CodeBlock>
+    </TabItem>
+</Tabs>
+
+- #### HTTP Proxy Mode
+
+<Tabs>
+    <TabItem value="curl" label="cURL" default>
+        <CodeBlock className="language-shell">{HTTPProxyModePDFJSRenderingCURL}</CodeBlock>
+    </TabItem>
+    <TabItem value="python" label="Python">
+        <CodeBlock className="language-python">{HTTPProxyModePDFJSRenderingPython}</CodeBlock>
+    </TabItem>
+</Tabs>
 
 ## Forwarding Headers
 

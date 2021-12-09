@@ -1,0 +1,3 @@
+curl --insecure \
+    --proxy 'http://YOUR-API-KEY:scrapingpass&pdf=true@proxy.scrapingpass.com:8080' \
+    'https://example.com/'
