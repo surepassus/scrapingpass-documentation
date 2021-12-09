@@ -1,0 +1,28 @@
+import requests
+
+url = "https://api.scrapingpass.com"
+
+# When using the forward_headers=true option.
+
+options = {
+    "api_key": "YOUR-API-KEY",
+    "url": "https://example.com/",
+    "forward_headers": True,
+}
+
+headers = {
+  'Your-Header-Key': 'YourHeaderValue'
+}
+
+# When using the Sp- prefix for headers to forward.
+
+# options = {
+#     "api_key": "YOUR-API-KEY",
+#     "url": "https://example.com/",
+# }
+
+# headers = {
+#   'Sp-Your-Header-Key': 'YourHeaderValue'
+# }
+
+response = requests.get(url, params=options, headers=headers)

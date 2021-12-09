@@ -1,0 +1,8 @@
+# When using the forward_headers=true option.
+curl 'https://api.scrapingpass.com?api_key=YOUR-API-KEY&url=https://example.com/&forward_headers=true' \
+    --header 'Your-Header-Key: YourHeaderValue'
+
+
+# When using the Sp- prefix for headers to forward.
+curl 'https://api.scrapingpass.com?api_key=YOUR-API-KEY&url=https://example.com/' \
+    --header 'Sp-Your-Header-Key: YourHeaderValue'

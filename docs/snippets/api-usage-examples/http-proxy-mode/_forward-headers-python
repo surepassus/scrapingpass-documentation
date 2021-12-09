@@ -1,0 +1,10 @@
+import requests
+
+proxy_url = "http://YOUR-API-KEY:scrapingpass&pdf=true@proxy.scrapingpass.com:8080"
+proxies = {"http": proxy_url, "https": proxy_url}
+
+headers = {
+  'Your-Header-Key': 'YourHeaderValue'
+}
+
+response = requests.get("https://example.com/", headers=headers, proxies=proxies, verify=False)

@@ -14,11 +14,15 @@ import HTTPRestAPIHTMLJSRenderingCURL from '!!raw-loader!./snippets/api-usage-ex
 import HTTPRestAPIHTMLJSRenderingPython from '!!raw-loader!./snippets/api-usage-examples/http-rest-api/_html-js-rendering-python';
 import HTTPRestAPIPDFJSRenderingCURL from '!!raw-loader!./snippets/api-usage-examples/http-rest-api/_pdf-js-rendering-curl';
 import HTTPRestAPIPDFJSRenderingPython from '!!raw-loader!./snippets/api-usage-examples/http-rest-api/_pdf-js-rendering-python';
+import HTTPRestAPIForwardHeadersCURL from '!!raw-loader!./snippets/api-usage-examples/http-rest-api/_forward-headers-curl';
+import HTTPRestAPIForwardHeadersPython from '!!raw-loader!./snippets/api-usage-examples/http-rest-api/_forward-headers-python';
 
 import HTTPProxyModeHTMLJSRenderingCURL from '!!raw-loader!./snippets/api-usage-examples/http-proxy-mode/_html-js-rendering-curl';
 import HTTPProxyModeHTMLJSRenderingPython from '!!raw-loader!./snippets/api-usage-examples/http-proxy-mode/_html-js-rendering-python';
 import HTTPProxyModePDFJSRenderingCURL from '!!raw-loader!./snippets/api-usage-examples/http-proxy-mode/_pdf-js-rendering-curl';
 import HTTPProxyModePDFJSRenderingPython from '!!raw-loader!./snippets/api-usage-examples/http-proxy-mode/_pdf-js-rendering-python';
+import HTTPProxyModeForwardHeadersCURL from '!!raw-loader!./snippets/api-usage-examples/http-proxy-mode/_forward-headers-curl';
+import HTTPProxyModeForwardHeadersPython from '!!raw-loader!./snippets/api-usage-examples/http-proxy-mode/_forward-headers-python';
 
 ## JS Rendering
 
@@ -76,11 +80,33 @@ Sometimes its required to make use of headless browsers aka JS Rendering for cli
 
 Scrapingpass allows you to forward any desired set of headers to the remote. To forward headers, you need to specify `forward_headers=true` and Scrapingpass will smartly guess the headers to forward while dropping the headers which would have meant for Scrapingpass API itself. However, please do note that this way can be slightly error prone. If you experience any issue, you may use other following rigorous ways of forwarding headers.
 
-To ensure that all correct headers are forwarded to the remote, you can also prefix the headers you wish forward with `Sp-` and Scrapingpass will automatically strip the Sp- prefix and forward it to remote. For example, if you wish to forward `Referer: https://example.com/` header, you can include it as header `Sp-Referer: https://example.com/` while making request to Scrapingpass API and it will forward correct Referer header to the remote.
+To ensure that all correct headers are forwarded to the remote, you can also prefix the headers you wish forward with `Sp-` and Scrapingpass will automatically strip the Sp- prefix and forward it to remote. For example, if you wish to forward `Referer: https://example.com/` header, you can include it as header `Sp-Referer: https://example.com/` while making request to Scrapingpass API and it will forward correct Referer header to the remote. Note that using this way, Scrapingpass will always forward headers prefixed with Sp- independent whatever specified to forward_headers.
 
+:::tip
 If you're using [HTTP Proxy Mode](/getting-started/proxy-mode#http-proxy-mode) then you don't need to do anything special. You can specify headers as same way as if you were sending request directly to the remote yourself.
+:::
 
-...
+- #### HTTP REST API
+
+<Tabs>
+    <TabItem value="curl" label="cURL" default>
+        <CodeBlock className="language-shell">{HTTPRestAPIForwardHeadersCURL}</CodeBlock>
+    </TabItem>
+    <TabItem value="python" label="Python">
+        <CodeBlock className="language-python">{HTTPRestAPIForwardHeadersPython}</CodeBlock>
+    </TabItem>
+</Tabs>
+
+- #### HTTP Proxy Mode
+
+<Tabs>
+    <TabItem value="curl" label="cURL" default>
+        <CodeBlock className="language-shell">{HTTPProxyModeForwardHeadersCURL}</CodeBlock>
+    </TabItem>
+    <TabItem value="python" label="Python">
+        <CodeBlock className="language-python">{HTTPProxyModeForwardHeadersPython}</CodeBlock>
+    </TabItem>
+</Tabs>
 
 ## Making POST/PUT Requests
 
