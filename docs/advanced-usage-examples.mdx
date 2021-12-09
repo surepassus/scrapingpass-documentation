@@ -1,0 +1,37 @@
+---
+sidebar_position: 3
+---
+
+# Advanced Usage Examples
+
+This section holds examples on achieving different implementations and methodologies using Scrapingpass API.
+
+## JS Rendering
+
+Sometimes its required to make use of headless browsers aka JS Rendering for client side rendered web applications. Scrapingpass provides lets you get either HTML or screenshot, PDF, etc through JS Rendering.
+
+### HTML through JS Rendering
+
+...
+
+### PDF through JS Rendering
+
+...
+
+## Forwarding Headers
+
+Scrapingpass allows you to forward any desired set of headers to the remote. To forward headers, you need to specify `forward_headers=true` and Scrapingpass will smartly guess the headers to forward while dropping the headers which would have meant for Scrapingpass API itself. However, please do note that this way can be slightly error prone. If you experience any issue, you may use other following rigorous ways of forwarding headers.
+
+To ensure that all correct headers are forwarded to the remote, you can also prefix the headers you wish forward with `Sp-` and Scrapingpass will automatically strip the Sp- prefix and forward it to remote. For example, if you wish to forward `Referer: https://example.com/` header, you can include it as header `Sp-Referer: https://example.com/` while making request to Scrapingpass API and it will forward correct Referer header to the remote.
+
+If you're using [HTTP Proxy Mode](/getting-started/proxy-mode#http-proxy-mode) then you don't need to do anything special. You can specify headers as same way as if you were sending request directly to the remote yourself.
+
+...
+
+## Making POST/PUT Requests
+
+When its required to capture the state after some kind of form submit which usually involves making POST/PUT requests to remote along with some form data. Scrapingpass allows you to easily achieve this.
+
+You simply need to make request to API with POST/PUT method along with your request body or form data. Scrapingpass will transparently forward the same request body to remote while making POST/PUT request.
+
+...
