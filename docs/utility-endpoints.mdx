@@ -1,0 +1,49 @@
+---
+sidebar_position: 4
+---
+
+# Utility Endpoints
+
+Scrapingpass provides few utility endpoints which are documented here.
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import CodeBlock from '@theme/CodeBlock';
+import EstimateBalanceCURLExample from '!!raw-loader!./snippets/api-usage-examples/utility-endpoints/_estimate-balance-curl';
+import EstimateBalancePythonExample from '!!raw-loader!./snippets/api-usage-examples/utility-endpoints/_estimate-balance-python';
+import EstimateBalanceResponseExample from '!!raw-loader!./snippets/api-response-examples/estimate_balance';
+
+
+## Base URL
+
+Utility endpoints are well separated from the actual API to prevent any conflicts to /meta/ path.
+
+```
+https://api.scrapingpass.com/meta
+```
+
+## Estimate Balance Required
+
+**GET** `/estimate-balance`
+
+Calculate and determine the exact balance which will be used for provided set of Scrapingpass API options. The parameters for this endpoint are exactly same as that of [HTTP REST API](getting-started/http-rest-api#specifying-api-options).
+
+:::note
+This endpoint doesn't requires an API Key or any kind of authorization. So the `api_key` parameter can be omitted.
+:::
+
+#### Example Usage
+
+<Tabs>
+    <TabItem value="curl" label="cURL" default>
+        <CodeBlock className="language-shell">{EstimateBalanceCURLExample}</CodeBlock>
+    </TabItem>
+    <TabItem value="python" label="Python">
+        <CodeBlock className="language-python">{EstimateBalancePythonExample}</CodeBlock>
+    </TabItem>
+</Tabs>
+
+#### Example Response
+
+<CodeBlock className="language-json">{EstimateBalanceResponseExample}</CodeBlock>
+

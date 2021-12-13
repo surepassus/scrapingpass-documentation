@@ -1,0 +1,8 @@
+{
+    "code": "success",
+    "data": {
+        "balance_required": 6
+    },
+    "message": null,
+    "status_code": 200
+}
