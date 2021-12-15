@@ -415,8 +415,8 @@ Scrapingpass API returns different status codes depending on different error cas
 |     401     |          Unauthorized         |          `user_not_found`          |                          Invalid or missing API Key.                         |
 |     403     |           Forbidden           |      `user_not_enough_balance`     |                         Not enough balance in wallet.                        |
 |     403     |           Forbidden           | `user_authorization_token_revoked` |                     A revoked API Key has been specified.                    |
-|     429     |       Too Many Requests       |  `user_concurrency_limit_exceeded` |                User has exceeded their max concurrency limit.                |
 |     407     | Proxy Authentication Required |    `missing_proxy_authorization`   |            Missing proxy authorization in case of HTTP Proxy Mode.           |
+|     429     |       Too Many Requests       |  `user_concurrency_limit_exceeded` |                User has exceeded their max concurrency limit.                |
 |     500     |     Internal Server Error     |       `unexpected_exception`       |              Something went wrong with Scrapingpass API servers.             |
 
 ## API Credits Usage
