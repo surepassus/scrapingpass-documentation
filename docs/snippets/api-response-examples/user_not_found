@@ -1,0 +1,7 @@
+{
+    "code": "user_not_found",
+    "data": null,
+    "error_data": {},
+    "message": null,
+    "status_code": 401
+}

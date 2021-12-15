@@ -8,6 +8,7 @@ A brief general reference of several components of Scrapingpass API. Includes co
 
 import CodeBlock from '@theme/CodeBlock';
 import JSONResponseExample from '!!raw-loader!../snippets/api-response-examples/json';
+import UserNotFoundExample from '!!raw-loader!../snippets/api-response-examples/user_not_found';
 import ExtractionRulesResponseExample from '!!raw-loader!../snippets/api-response-examples/extraction_rules';
 
 ## API Interfaces
@@ -418,6 +419,10 @@ Scrapingpass API returns different status codes depending on different error cas
 |     407     | Proxy Authentication Required |    `missing_proxy_authorization`   |            Missing proxy authorization in case of HTTP Proxy Mode.           |
 |     429     |       Too Many Requests       |  `user_concurrency_limit_exceeded` |                User has exceeded their max concurrency limit.                |
 |     500     |     Internal Server Error     |       `unexpected_exception`       |              Something went wrong with Scrapingpass API servers.             |
+
+#### Example API Error Response
+
+<CodeBlock className="language-json">{UserNotFoundExample}</CodeBlock>
 
 ## API Credits Usage
 
