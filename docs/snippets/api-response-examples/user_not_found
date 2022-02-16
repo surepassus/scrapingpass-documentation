@@ -2,6 +2,7 @@
     "code": "user_not_found",
     "data": null,
     "error_data": {},
+    "error_type": "SCRAPINGPASS_ERROR",
     "message": null,
     "status_code": 401
 }
